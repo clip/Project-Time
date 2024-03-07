@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Project LOCKIN</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="index.js"></script>
+        <style>
+          .dropdown-details {
+            position: relative;
+            z-index: 100; /* Adjust this value as needed */
+          }
+        </style>
+    </head>
+    <body style="background: white;">
+        <div class="navbar">
+            <div class="flex-1">
+              <a class="btn btn-ghost text-xl" id="scale-text" href="../main/index.html">Project LOCKIN</a>
+            </div>
+            <div class="flex-none">
+              <ul class="menu menu-horizontal px-1">
+                <li><a onclick="Redirect()">Github</a></li>
+                <li class="dropdown-details">
+                  <details>
+                    <summary>Information</summary>
+                    <ul class="p-2 bg-base-100 rounded-t-none" style="position: absolute;background-color:white;">
+                      <li><a href="../src/index.html">RSS Events</a></li>
+                      <li><a href="../valuetest/index.html">Countdown Generator</a></li>
+                    </ul>
+                  </details>
+                </li>
+              </ul>
+              <!-- Theme controller added here -->
+              <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn m-1" style="background-color: transparent;">
+                  Theme
+                  <svg width="12px" height="12px" class="h-2 w-2 fill-current opacity-60 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg>
+                </div>
+                <ul tabindex="0" class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
+                  <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Default" value="default"/></li>
+                  <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Retro" value="retro"/></li>
+                  <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Cyberpunk" value="cyberpunk"/></li>
+                  <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Valentine" value="valentine"/></li>
+                  <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Aqua" value="aqua"/></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8" style="padding: 25px;top:55px;z-index: 0;">
+            <!-- First card in grid -->
+            <div class="rounded-lg">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body" style="height: 400px;">
+                        <h2 class="card-title">Location</h2>
+                        <p>4500 Patriot Cir, Fairfax, VA 22030</p>
+                        <style>.embed-container {position: relative; padding-bottom: 30%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container">
+                            <iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="PROM EXAMPLE" src="//rbss.maps.arcgis.com/apps/Embed/index.html?webmap=63c64208b7d449d29fe1304b6a2b2d20&amp;extent=-77.3257,38.8088,-77.2778,38.8338&amp;zoom=true&amp;previewImage=false&amp;scale=true&amp;disable_scroll=true&amp;theme=light"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <!-- Second card in grid -->
+            <div class="rounded-lg lg:col-span-2">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body" style="align-items: center;height: 400px;">
+                        <h2 class="card-title">David Buster's Afterparty <a href="https://www.instagram.com/robosga/?hl=en" style="color: lightblue">(SGA)</a></h2>
+                        <div class="grid grid-flow-col gap-5 text-center auto-cols-max" style="padding-top: 50px;padding-bottom:20px;">
+                            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                              <span class="countdown font-mono text-5xl">
+                                <span style="--value:00;"></span>
+                              </span>
+                              days
+                            </div> 
+                            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                              <span class="countdown font-mono text-5xl">
+                                <span style="--value:00;"></span>
+                              </span>
+                              hours
+                            </div> 
+                            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                              <span class="countdown font-mono text-5xl">
+                                <span style="--value:00;"></span>
+                              </span>
+                              min
+                            </div> 
+                            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                              <span class="countdown font-mono text-5xl">
+                                <span style="--value:00;"></span>
+                              </span>
+                              sec
+                            </div>
+                          </div>
+                        <div class="card-actions justify-end gap-10">
+                            <button class="btn btn-primary" id="buttonsText1" style="width: 120px;">Tickets</button>
+                            <button class="btn btn-primary" id="buttonsText2" style="width: 120px;">Website</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Third card in grid -->
+            <div class="rounded-lg">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body" style="height: 400px;">
+                        <h2 class="card-title">Information</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- First End-->
+        <div class="flex flex-col w-full p-10"> <!-- DIVIDER -->
+            <div class="divider divider-neutral pr-10 pl-10"></div>
+        </div>
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8" style="padding: 25px;top:55px;z-index: 0;">
+          <!-- First card in grid -->
+          <div class="rounded-lg">
+              <div class="card bg-base-100 shadow-xl">
+                  <div class="card-body" style="height: 400px;">
+                      <h2 class="card-title">Location</h2>
+                      <p>4500 Patriot Cir, Fairfax, VA 22030</p>
+                      <style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="PROM EXAMPLE" src="//rbss.maps.arcgis.com/apps/Embed/index.html?webmap=63c64208b7d449d29fe1304b6a2b2d20&extent=-77.3257,38.8088,-77.2778,38.8338&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></iframe></div>
+                  </div>
+              </div>
+          </div>
+        
+ <!-- Second card in grid for the new countdown -->
+<div class="rounded-lg lg:col-span-2">
+  <div class="card bg-base-100 shadow-xl">
+      <div class="card-body" style="align-items: center;height: 400px;">
+          <h2 class="card-title">SR. Graduation</h2>
+          <div class="grid grid-flow-col gap-5 text-center auto-cols-max" style="padding-top: 50px;padding-bottom:20px;">
+              <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                  <span class="countdown font-mono text-5xl">
+                      <span id="days2" style="--value:00;"></span>
+                  </span>
+                  days
+              </div>
+              <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                  <span class="countdown font-mono text-5xl">
+                      <span id="hours2" style="--value:00;"></span>
+                  </span>
+                  hours
+              </div>
+              <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                  <span class="countdown font-mono text-5xl">
+                      <span id="minutes2" style="--value:00;"></span>
+                  </span>
+                  min
+              </div>
+              <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                  <span class="countdown font-mono text-5xl">
+                      <span id="seconds2" style="--value:00;"></span>
+                  </span>
+                  sec
+              </div>
+          </div>
+          <div class="card-actions justify-end gap-10">
+              <button class="btn btn-primary" id="buttonsText1" style="width: 120px;">Tickets</button>
+              <button class="btn btn-primary" id="buttonsText2" style="width: 120px;">Website</button>
+          </div>
+      </div>
+  </div>
+</div>
+      
+          <!-- Third card in grid -->
+          <div class="rounded-lg">
+              <div class="card bg-base-100 shadow-xl">
+                  <div class="card-body" style="height: 400px;">
+                      <h2 class="card-title">Information</h2>
+                      <p>If a dog chews shoes whose shoes does he choose?</p>
+                      <div class="card-actions justify-end">
+                          <button class="btn btn-primary">Buy Now</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div> <!-- First End-->
+      <div class="flex flex-col w-full p-10"> <!-- DIVIDER -->
+        <div class="divider divider-neutral pr-10 pl-10"></div>
+    </div>
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8" style="padding: 25px;top:55px;z-index: 0;">
+      <!-- First card in grid -->
+      <div class="rounded-lg">
+          <div class="card bg-base-100 shadow-xl">
+              <div class="card-body" style="height: 400px;">
+                  <h2 class="card-title">Location</h2>
+                  <p>4500 Patriot Cir, Fairfax, VA 22030</p>
+                  <style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="PROM EXAMPLE" src="//rbss.maps.arcgis.com/apps/Embed/index.html?webmap=63c64208b7d449d29fe1304b6a2b2d20&extent=-77.3257,38.8088,-77.2778,38.8338&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></iframe></div>
+              </div>
+          </div>
+      </div>
+    
+<!-- Second card in grid for the new countdown -->
+<div class="rounded-lg lg:col-span-2">
+<div class="card bg-base-100 shadow-xl">
+  <div class="card-body" style="align-items: center;height: 400px;">
+      <h2 class="card-title">Senior Trip</h2>
+      <div class="grid grid-flow-col gap-5 text-center auto-cols-max" style="padding-top: 50px;padding-bottom:20px;">
+          <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+              <span class="countdown font-mono text-5xl">
+                  <span id="days3" style="--value:00;"></span>
+              </span>
+              days
+          </div>
+          <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+              <span class="countdown font-mono text-5xl">
+                  <span id="hours3" style="--value:00;"></span>
+              </span>
+              hours
+          </div>
+          <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+              <span class="countdown font-mono text-5xl">
+                  <span id="minutes3" style="--value:00;"></span>
+              </span>
+              min
+          </div>
+          <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+              <span class="countdown font-mono text-5xl">
+                  <span id="seconds3" style="--value:00;"></span>
+              </span>
+              sec
+          </div>
+      </div>
+      <div class="card-actions justify-end gap-10">
+          <button class="btn btn-primary" id="buttonsText1" style="width: 120px;">Tickets</button>
+          <button class="btn btn-primary" id="buttonsText2" style="width: 120px;">Website</button>
+      </div>
+  </div>
+</div>
+</div>
+  
+      <!-- Third card in grid -->
+      <div class="rounded-lg">
+          <div class="card bg-base-100 shadow-xl">
+              <div class="card-body" style="height: 400px;">
+                  <h2 class="card-title">Information</h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div class="card-actions justify-end">
+                      <button class="btn btn-primary">Buy Now</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> <!-- First End-->
+  <div class="flex flex-col w-full p-10"> <!-- DIVIDER -->
+    <div class="divider divider-neutral pr-10 pl-10"></div>
+</div>
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8" style="padding: 25px;top:55px;z-index: 0;">
+  <!-- First card in grid -->
+  <div class="rounded-lg">
+      <div class="card bg-base-100 shadow-xl">
+          <div class="card-body" style="height: 400px;">
+              <h2 class="card-title">Location</h2>
+              <p>4500 Patriot Cir, Fairfax, VA 22030</p>
+              <style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="PROM EXAMPLE" src="//rbss.maps.arcgis.com/apps/Embed/index.html?webmap=63c64208b7d449d29fe1304b6a2b2d20&extent=-77.3257,38.8088,-77.2778,38.8338&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></iframe></div>
+          </div>
+      </div>
+  </div>
+
+<!-- Second card in grid for the new countdown -->
+<div class="rounded-lg lg:col-span-2">
+<div class="card bg-base-100 shadow-xl">
+<div class="card-body" style="align-items: center;height: 400px;">
+  <h2 class="card-title">Prom</h2>
+  <div class="grid grid-flow-col gap-5 text-center auto-cols-max" style="padding-top: 50px;padding-bottom:20px;">
+      <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+          <span class="countdown font-mono text-5xl">
+              <span id="days4" style="--value:00;"></span>
+          </span>
+          days
+      </div>
+      <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+          <span class="countdown font-mono text-5xl">
+              <span id="hours4" style="--value:00;"></span>
+          </span>
+          hours
+      </div>
+      <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+          <span class="countdown font-mono text-5xl">
+              <span id="minutes4" style="--value:00;"></span>
+          </span>
+          min
+      </div>
+      <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+          <span class="countdown font-mono text-5xl">
+              <span id="seconds4" style="--value:00;"></span>
+          </span>
+          sec
+      </div>
+  </div>
+  <div class="card-actions justify-end gap-10">
+      <button class="btn btn-primary" id="buttonsText1" style="width: 120px;">Tickets</button>
+      <button class="btn btn-primary" id="buttonsText2" style="width: 120px;">Website</button>
+  </div>
+</div>
+</div>
+</div>
+
+  <!-- Third card in grid -->
+  <div class="rounded-lg">
+      <div class="card bg-base-100 shadow-xl">
+          <div class="card-body" style="height: 400px;">
+              <h2 class="card-title">Information</h2>
+              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <div class="card-actions justify-end">
+                  <button class="btn btn-primary">Buy Now</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> <!-- First End-->
+    </body>
+
+</html>

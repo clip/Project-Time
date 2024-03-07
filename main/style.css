@@ -1,0 +1,78 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+    background-color: white; /* or any color you prefer */
+}
+
+.responsive-img {
+    background-image: url('background2.png');
+    background-repeat: no-repeat;
+    user-select: none;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 0; /* Adjust this based on navbar height */
+    left: 0;
+    width: 100%;
+}
+
+/* Responsive adjustments for phone screens */
+@media only screen and (max-width: 700px) {
+    .responsive-img {
+        height: 35%; /* Adjust the height on smaller screens */
+        top: 15%;
+    }
+
+    #scale-text {
+        font-size: 0.5rem;
+    }
+
+    #typewriter-container {
+    right: 30%!important;
+    top: 50%!important;
+    font-size: 20px!important;
+    }
+}
+
+/* Sakura petals container styling */
+#sakura-container {
+    position: absolute;
+    top: 0; /* Adjust this to be below the navbar */
+    left: 0;
+    width: 100%;
+    height: 100%; /* Or adjust to control where petals fall */
+    z-index: 1; /* Below the navbar but above the image */
+}
+
+#typewriter-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    font-size: 35px; /* Adjust based on your needs */
+    font-family: 'Minecraft', sans-serif;
+    width: 80%; /* Set a fixed width */
+    min-height: 100px; /* Set a minimum height */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the container */
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflow text */
+    user-select: none;
+}
+
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar is above everything else */
+}
+
+.Typewriter__cursor {
+    display: none;
+}

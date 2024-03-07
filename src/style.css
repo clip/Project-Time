@@ -1,0 +1,75 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    background-color: white!important; /* or any color you prefer */
+}
+.embed-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-bottom:15rem!important;
+}
+
+.embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
+
+/* Responsive font sizing and padding for smaller screens */
+@media only screen and (max-width: 768px) {
+    #buttonsText1 {
+        width: 120px!important;
+    }
+
+    #buttonsText2 {
+        width: 120px!important;
+    }
+
+    #scale-text {
+        font-size: 0.5rem;
+    }
+
+    .countdown.font-mono.text-5xl {
+        font-size: 3rem; /* Adjust font size as needed for tablets */
+    }
+
+    .flex.flex-col.p-2.bg-neutral.rounded-box.text-neutral-content {
+        padding: 1rem; /* Adjust padding as needed */
+    }
+
+    /* Adjust iframe container for tablets */
+    .embed-container {
+      padding-bottom: 75%; /* Adjust the percentage to change aspect ratio */
+    }
+}
+@media (max-width: 895px) {
+    .embed-container {
+        padding-bottom: 100px;
+      /* Adjust styles for smaller screens */
+    }
+  }
+
+/* Responsive adjustments for very small screens */
+@media only screen and (max-width: 480px) {
+    .countdown.font-mono.text-5xl {
+        font-size: 2rem; /* Adjust font size as needed for mobile phones */
+    }
+
+    .flex.flex-col.p-2.bg-neutral.rounded-box.text-neutral-content {
+        padding: 0.9rem; /* Adjust padding as needed */
+    }
+
+    /* Adjust iframe container for mobile phones */
+    .embed-container {
+      padding-bottom: 100%; /* Adjust the percentage to change aspect ratio */
+    }
+}

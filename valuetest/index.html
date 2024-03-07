@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Value Testing JS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: white!important;
+        }
+        .countdown-card {
+            padding-bottom: 25px;
+        }
+    </style>
+</head>
+<body class="bg-white">
+  <div class="navbar">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl" id="scale-text" href="../main/index.html">Project LOCKIN</a>
+    </div>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal px-1">
+        <li><a onclick="Redirect()">Github</a></li>
+        <li class="dropdown-details">
+          <details>
+            <summary>Information</summary>
+            <ul class="p-2 bg-base-100 rounded-t-none" style="position: absolute;background-color:white;">
+              <li><a href="../src/index.html">RSS Events</a></li>
+              <li><a href="../valuetest/index.html">Countdown Generator</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+      <!-- Theme controller added here -->
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn m-1" style="background-color: transparent;">
+          Theme
+          <svg width="12px" height="12px" class="h-2 w-2 fill-current opacity-60 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg>
+        </div>
+        <ul tabindex="0" class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
+          <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Default" value="default"/></li>
+          <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Retro" value="retro"/></li>
+          <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Cyberpunk" value="cyberpunk"/></li>
+          <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Valentine" value="valentine"/></li>
+          <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Aqua" value="aqua"/></li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+
+<section>
+    <div class="mx-auto pt-10 max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-x-16 gap-y-8">
+            <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+                <p class="pb-5">Countdown Generator</p>
+                <form class="space-y-4" id="countdownForm">
+                    <div>
+                        <label class="sr-only">Title</label>
+                        <input
+                            class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                            placeholder="Title"
+                            type="text"
+                            id="title"
+                        />
+                    </div>
+                    <div>
+                        <label class="sr-only">Date</label>
+                        <input
+                            class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                            placeholder="Ex. May 18, 2024"
+                            type="text"
+                            id="date"
+                            autocomplete="off"
+                        />
+                    </div>
+                        <button
+                            type="submit" id="create"
+                            class="mt-4 w-full rounded-lg btn btn-neutral px-5 py-3 font-medium sm:w-auto"
+                        >
+                            Create Countdown
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="grid grid-cols-1 gap-4 text-center lg:grid-cols-1 lg:gap-8" style="padding: 25px; z-index: 0;">
+    <!-- Countdown section -->
+    <div id="countdownSection"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script>
+function Redirect() {
+  window.open("https://www.github.com/clip", "_blank");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Function to update countdown
+    function updateCountdown(countDownDate, containerId, title) {
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Select the elements and update the --value property
+            var countdownSection = document.getElementById(containerId);
+            if (!countdownSection) return;
+
+            countdownSection.innerHTML = `
+            <div class="countdown-card card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title justify-center pb-5">${title}</h2>
+                            <div class="grid grid-cols-4 gap-5 text-center">
+                                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                                    <span class="countdown justify-center font-mono text-5xl">${days}</span>
+                                    <span>days</span>
+                                </div>
+                                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                                    <span class="countdown justify-center font-mono text-5xl">${hours}</span>
+                                    <span>hours</span>
+                                </div>
+                                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                                    <span class="countdown justify-center font-mono text-5xl">${minutes}</span>
+                                    <span>min</span>
+                                </div>
+                                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                                    <span class="countdown justify-center font-mono text-5xl">${seconds}</span>
+                                    <span>sec</span>
+                                </div>
+                            </div>
+                            <div class="card-actions justify-center pt-5" style="gap: 2rem;">
+                                <button class="btn btn-error close-btn" data-container-id="${containerId}" style="width: 120px;">Close</button>
+                            </div>
+                        </div>
+                    </div>
+            `;
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                countdownSection.innerHTML = "<p>Countdown expired!</p>";
+            }
+
+            // Add event listener to the close button
+            var closeBtn = countdownSection.querySelector(".close-btn");
+            if (closeBtn) {
+                closeBtn.addEventListener("click", function() {
+                    var container = document.getElementById(this.dataset.containerId);
+                    if (container) {
+                        container.remove();
+                        removeFromLocalStorage(this.dataset.containerId); // Remove from localStorage
+                    }
+                });
+            }
+        }, 1000);
+    }
+
+    // Function to remove from localStorage
+    function removeFromLocalStorage(containerId) {
+        localStorage.removeItem(containerId);
+        console.log("Removed from localStorage:", containerId);
+    }
+
+    // Event listener for form submission
+    document.getElementById("countdownForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get input values
+        var title = document.getElementById("title").value;
+        var date = document.getElementById("date").value;
+
+        // Validate date input
+        var countDownDate = new Date(date).getTime();
+        if (isNaN(countDownDate)) {
+            alert("Please enter a valid date format (Ex. May 18, 2024)");
+            return;
+        }
+
+        // Generate a unique container ID
+        var containerId = "countdown_" + new Date().getTime();
+
+        // Create a new container for the countdown
+        var countdownContainer = document.createElement("div");
+        countdownContainer.className = "countdown-card";
+        countdownContainer.id = containerId;
+        document.getElementById("countdownSection").appendChild(countdownContainer);
+
+        // Save to localStorage
+        var countdownData = {
+            title: title,
+            date: date,
+            containerId: containerId,
+            html: countdownContainer.innerHTML
+        };
+        localStorage.setItem(containerId, JSON.stringify(countdownData));
+        console.log("Saved to localStorage:", countdownData);
+
+        // Start the countdown
+        updateCountdown(countDownDate, containerId, title);
+    });
+
+    // Retrieve countdowns from localStorage on page load
+    for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key.startsWith("countdown_")) {
+            var countdownData = JSON.parse(localStorage.getItem(key));
+            var countdownSection = document.getElementById("countdownSection");
+            var countdownContainer = document.createElement("div");
+            countdownContainer.className = "countdown-card";
+            countdownContainer.id = countdownData.containerId;
+            countdownContainer.innerHTML = countdownData.html;
+            countdownSection.appendChild(countdownContainer);
+            updateCountdown(new Date(countdownData.date).getTime(), countdownData.containerId, countdownData.title);
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>
