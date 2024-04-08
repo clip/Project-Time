@@ -140,7 +140,7 @@ var x4 = setInterval(function() {
         document.getElementById("hours4").style.setProperty('--value', 0);
         document.getElementById("minutes4").style.setProperty('--value', 0);
         document.getElementById("seconds4").style.setProperty('--value', 0);
+        document.getElementById("expired2").style.display = "block";
     }
 }, 1000);
-
    
