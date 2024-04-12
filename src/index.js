@@ -11,6 +11,10 @@ function Redirect() {
   window.open("https://www.github.com/clip", "_blank");
 }
 
+function Document1() {
+  window.open('https://imgur.com/a/Zo8cmie', "_blank")
+}
+
   var countDownDate = new Date("June 3, 2024 23:00:00").getTime();
 
 
